@@ -1,0 +1,62 @@
+#include<iostream.h>
+#include<conio.h>
+class Railwayticketreserve
+{
+	char name[20];
+	int age;
+	char boardingpoint[15];
+	char destination[10];
+	char trainname[10];
+	int coach;
+	char berth[5];
+	int clas;
+	int trainno;
+	int departuretime;
+	int ticketno[500];
+	public:
+	void book();
+	void display();
+};
+	void Railwayticketreserve::book()
+	{
+		cout<<"\n Enter your Name:";
+		cin>>name;
+		cout<<"\n Enter the age:";
+		cin>>age;
+		cout<<"\n Enter your boarding point:";
+		cin>>boardingpoint;
+		cout<<"\n Enter your Destination:";
+		cin>>destination;
+		cout<<"\n Enter the trainno.:";
+		cin>>trainno;
+		cout<<"\n Entet the train name:";
+		cin>>trainname;
+		cout<<"\n Entet the Departure time:";
+		cin>>departuretime;
+		cout<<"\n Enter the travel class required:";
+		cin>>clas;
+		cout<<"\n Enter the coach required:";
+		cin>>coach;
+		cout<<"\n Enter the berth required:";
+		cin>>berth;
+
+	}
+	void Railwayticketreserve::display()
+	{
+
+		cout<<"\n Ticket no.: \t"<<ticketno<<"Name: \t"<<name<<"Age: \t"<<age<<"Boarding Point: \t"<<boardingpoint<<"Destination: \t"<<destination<<"Train No.: \t"<<trainno<<"Train Name: \t"<<trainname<<"Departure Time: \t"<<departuretime<<"Class: \t"<<clas<<"Coach: \t"<<coach<<"Berth: \t"<<berth;
+		cout<<"\n-----------------------------------------------------------";
+	}
+void main()
+{
+	int n;
+	cout<<"\n Enter the number of tickets to be booked";
+	cin>>n;
+	Railwayticketreserve obj[50];
+	for(int i=0;i<n;i++)
+	{
+		obj[i].book();
+		obj[i].display();
+	}
+	getch();
+}
