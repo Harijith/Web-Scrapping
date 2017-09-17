@@ -46,24 +46,68 @@ class Railwayticketreserve
 		cout<<"\n Name: "<<name<< "\tAge: "<<age<<"\tBoarding Point: "<<boardingpoint<<"\tDestination: "<<destination<<"\tTrain No.: "<<trainno<<"\tTrain Name: "<<trainname<<"\tDeparture Time: "<<departuretime<<"\tClass: "<<clas<<"\tCoach: "<<coach<<"\tBerth: "<<berth;
 		cout<<"\n-----------------------------------------------------------";
 	}
+class Cancel
+{       public:
+	int ticketno;
+	void getDetails();
+};
+	void Cancel:: getDetails()
+	{
+		int ticketno=0;
+		cout<<"\n Enter the ticketno. to be cancelled:";
+		cin>>ticketno;
+		if(ticketno)
+		{
+			cout<<"\n Your ticket "<<ticketno<<" has been cancelled";
+		}
+	}
 void main()
 {
-	int n,N=500;
+	int n,n1,N=500,ticketno[500];
+	int ch;
 	clrscr();
-	cout<<"\n Enter the number of tickets to be booked: ";
-	cin>>n;
-	Railwayticketreserve obj[50];
-	for(int i=0;i<n;i++)
+	cout<<"\n 1. Reservation \n 2. Cancellation \n 3. Exit";
+	cin>>ch;
+	do
 	{
-		obj[i].book();
-		cout<<"\n-----------------------------------------------------------------------";
-	}
-	for(i=0;i<n;i++)
-	{
-		obj[i].display();
-		cout<<"\n-----------------------------------------------------------------------";
-	}
-	N=N-n;
+		switch(ch)
+		{
+			case 1:cout<<"\n------------------------------------------------";
+				cout<<"\n Welcome to Indian Railways";
+				cout<<"\n------------------------------------------------";
+				cout<<"\n Enter the number of tickets to be booked: ";
+				cin>>n;
+				Railwayticketreserve obj[50];
+				for(int i=0;i<n;i++)
+				{
+					obj[i].book();
+					cout<<"\n-----------------------------------------------------------------------";
+				}
+				for(i=0;i<n;i++)
+				{
+					obj[i].display();
+					cout<<"\n Your ticket number is:"<< ticketno[i];
+					cout<<"\n-----------------------------------------------------------------------";
+				}
+				N=N-n;
+				break;
+			case 2: cout<<"\n------------------------------------------------";
+				cout<<"\n Welcome to Indian Railways";
+				cout<<"\n------------------------------------------------";
+				cout<<"\n Enter the no. of tickets to cancel";
+				cin>>n1;
+				for(int j=0;j<n1;j++)
+				{
+					Cancel obj;
+					obj.getDetails();
+				}
+				N=N+n1;
+				break;
+			 case 3:break;
+			 default:cout<<"\n Invalid choice";
+				 break;
+			}
+	}while(ch<=3);
 	cout<<"\n The total no. of tickets available are:"<<N;
 	getch();
 }
